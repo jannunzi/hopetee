@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HopeTee — Wear Hope. Share Hope.</title>
+    <meta
+      name="description"
+      content="HopeTee turns a simple T-shirt into a message of hope for the people affected by the earthquakes in Venezuela."
+    />
+    <link rel="icon" type="image/png" href="assets/hopetee-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #16264f;
+        --navy-soft: #1e3367;
+        --red: #e1242a;
+        --gold: #f5a800;
+        --ink: #1a1a1a;
+        --muted: #6b7280;
+        --bg: #ffffff;
+        --bg-alt: #f6f7f9;
+        --line: #e7e9ee;
+        --max: 1120px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.5;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Nav */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: -0.02em;
+      }
+      .brand img {
+        height: 34px;
+        width: auto;
+      }
+      .brand .hope {
+        color: var(--navy);
+      }
+      .brand .tee {
+        color: var(--red);
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 26px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #2c2c2c;
+      }
+      .nav-links a:hover {
+        color: var(--red);
+      }
+      .lang {
+        display: flex;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        overflow: hidden;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .lang button {
+        border: none;
+        background: transparent;
+        padding: 6px 12px;
+        cursor: pointer;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .lang button.active {
+        background: var(--navy);
+        color: #fff;
+      }
+      .nav-cta {
+        background: var(--red);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .nav-cta:hover {
+        background: #c41d22;
+      }
+
+      /* Hero */
+      .hero {
+        text-align: center;
+        padding: 96px 0 72px;
+      }
+      .hero .kicker {
+        color: var(--gold);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-size: clamp(40px, 7vw, 76px);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.02;
+        color: var(--navy);
+      }
+      .hero h1 .accent {
+        color: var(--red);
+      }
+      .hero p {
+        max-width: 620px;
+        margin: 24px auto 0;
+        font-size: clamp(17px, 2.4vw, 21px);
+        color: #44464d;
+        font-weight: 400;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-top: 38px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        padding: 13px 28px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 15px;
+        transition:
+          transform 0.15s ease,
+          background 0.2s ease;
+      }
+      .btn:active {
+        transform: scale(0.97);
+      }
+      .btn-primary {
+        background: var(--navy);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--navy-soft);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--navy);
+        border: 1px solid #cdd2dc;
+      }
+      .btn-ghost:hover {
+        border-color: var(--navy);
+      }
+      .hero-logo {
+        width: min(320px, 70%);
+        margin: 56px auto 0;
+      }
+
+      /* Section base */
+      section {
+        padding: 84px 0;
+      }
+      .section-head {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 52px;
+      }
+      .section-head h2 {
+        font-size: clamp(30px, 5vw, 46px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--navy);
+      }
+      .section-head p {
+        margin-top: 16px;
+        font-size: 18px;
+        color: var(--muted);
+      }
+
+      /* Collections / sample tees */
+      .alt {
+        background: var(--bg-alt);
+      }
+      .tees {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .tee-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          border-color 0.25s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .tee-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 40px rgba(22, 38, 79, 0.12);
+        border-color: transparent;
+      }
+      .tee-visual {
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .tee-visual svg {
+        width: 78%;
+        height: 78%;
+      }
+      .c-families .tee-visual {
+        background: linear-gradient(160deg, #eef2fb, #dde6f7);
+      }
+      .c-children .tee-visual {
+        background: linear-gradient(160deg, #fff7e6, #ffeec2);
+      }
+      .c-heroes .tee-visual {
+        background: linear-gradient(160deg, #fdecec, #f9d6d7);
+      }
+      .tee-body {
+        padding: 22px 24px 26px;
+      }
+      .tee-body .tag {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .c-heroes .tee-body .tag {
+        color: var(--red);
+      }
+      .c-families .tee-body .tag {
+        color: var(--navy);
+      }
+      .tee-body h3 {
+        font-size: 21px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 8px 0 8px;
+        letter-spacing: -0.02em;
+      }
+      .tee-body p {
+        font-size: 14.5px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .tee-link {
+        margin-top: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--red);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .tee-card:hover .tee-link .arrow {
+        transform: translateX(4px);
+      }
+      .arrow {
+        transition: transform 0.2s ease;
+      }
+
+      /* Story */
+      .story {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .story .lead {
+        font-size: clamp(22px, 3.4vw, 30px);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--navy);
+        line-height: 1.3;
+      }
+      .story p {
+        margin-top: 22px;
+        font-size: 17.5px;
+        color: #44464d;
+      }
+      .pledge {
+        margin-top: 40px;
+        display: inline-block;
+        background: var(--navy);
+        color: #fff;
+        padding: 14px 26px;
+        border-radius: 14px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      .pledge strong {
+        color: var(--gold);
+      }
+
+      /* Quote band */
+      .band {
+        background: var(--navy);
+        color: #fff;
+        text-align: center;
+      }
+      .band blockquote {
+        max-width: 760px;
+        margin: 0 auto;
+        font-size: clamp(22px, 3.6vw, 32px);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.32;
+      }
+      .band blockquote span {
+        color: var(--gold);
+      }
+
+      /* Values */
+      .values {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .value {
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #fff;
+      }
+      .value .n {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gold);
+        letter-spacing: 0.08em;
+      }
+      .value h4 {
+        margin: 12px 0 8px;
+        font-size: 19px;
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .value p {
+        font-size: 15px;
+        color: var(--muted);
+      }
+
+      /* CTA / get involved */
+      .cta {
+        text-align: center;
+      }
+      .cta-box {
+        background: linear-gradient(160deg, #16264f, #0f1c3d);
+        color: #fff;
+        border-radius: 28px;
+        padding: 64px 32px;
+      }
+      .cta-box h2 {
+        font-size: clamp(28px, 4.6vw, 42px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .cta-box p {
+        max-width: 540px;
+        margin: 16px auto 0;
+        color: #c4ccdc;
+        font-size: 18px;
+      }
+      .cta-form {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+      .cta-form input {
+        padding: 13px 18px;
+        border-radius: 999px;
+        border: 1px solid #33436b;
+        background: #1d2f59;
+        color: #fff;
+        font-size: 15px;
+        width: min(320px, 80vw);
+        font-family: inherit;
+      }
+      .cta-form input::placeholder {
+        color: #8b96b0;
+      }
+      .cta-form button {
+        background: var(--red);
+        color: #fff;
+        border: none;
+        padding: 13px 26px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .cta-form button:hover {
+        background: #c41d22;
+      }
+      .cta-note {
+        margin-top: 16px;
+        font-size: 13px;
+        color: #8b96b0;
+      }
+      .cta-second {
+        margin-top: 26px;
+        font-size: 15px;
+        color: #c4ccdc;
+      }
+      .cta-second a {
+        color: var(--gold);
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* Footer */
+      footer {
+        padding: 48px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .foot .brand {
+        font-size: 16px;
+      }
+      .foot .brand img {
+        height: 26px;
+      }
+
+      @media (max-width: 820px) {
+        .nav-links {
+          display: none;
+        }
+        .tees,
+        .values {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 60px 0;
+        }
+        .hero {
+          padding: 64px 0 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="index.html">
+          <img src="assets/hopetee-logo.png" alt="HopeTee logo" />
+        </a>
+        <div class="nav-right">
+          <nav class="nav-links">
+            <a href="#collections" data-i18n="nav_collections">Collections</a>
+            <a href="#story" data-i18n="nav_story">Our Story</a>
+            <a href="#involved" data-i18n="nav_involved">Get Involved</a>
+          </nav>
+          <div class="lang" role="group" aria-label="Language">
+            <button data-lang="en" class="active">EN</button>
+            <button data-lang="es">ES</button>
+          </div>
+          <a class="nav-cta" href="#involved" data-i18n="nav_cta"
+            >Get Involved</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="kicker" data-i18n="hero_kicker">
+          In development · Venezuela earthquake relief
+        </div>
+        <h1 data-i18n="hero_title">
+          Wear Hope.<br /><span class="accent">Share Hope.</span>
+        </h1>
+        <p data-i18n="hero_sub">
+          A simple T-shirt, transformed by Venezuela's artists into a message of
+          hope for the people affected by the earthquakes — given freely, made
+          personally.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#involved" data-i18n="hero_cta1"
+            >Join the movement</a
+          >
+          <a class="btn btn-ghost" href="#collections" data-i18n="hero_cta2"
+            >See the collections</a
+          >
+        </div>
+        <img
+          class="hero-logo"
+          src="assets/hopetee-shirt.png"
+          alt="HopeTee shirt with Venezuela–USA heart"
+        />
+      </div>
+    </section>
+
+    <!-- COLLECTIONS -->
+    <section id="collections" class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="col_head">Three collections, one message</h2>
+          <p data-i18n="col_sub">
+            Each tee is designed for someone who lived the tragedy from a
+            different perspective. Tap a shirt to explore.
+          </p>
+        </div>
+        <div class="tees">
+          <a class="tee-card c-families" href="collection.html?c=families">
+            <div class="tee-visual" data-tee></div>
+            <div class="tee-body">
+              <div class="tag" data-i18n="col1_tag">
+                Families &amp; Community
+              </div>
+              <h3 data-i18n="col1_title">Strength &amp; Resilience</h3>
+              <p data-i18n="col1_desc">
+                For families and citizens affected by the earthquake — artwork
+                carrying messages of strength, resilience, and hope.
+              </p>
+              <span class="tee-link" data-i18n="col_explore"
+                >Explore collection <span class="arrow">→</span></span
+              >
+            </div>
+          </a>
+          <a class="tee-card c-children" href="collection.html?c=children">
+            <div class="tee-visual" data-tee></div>
+            <div class="tee-body">
+              <div class="tag" data-i18n="col2_tag">Children's Collection</div>
+              <h3 data-i18n="col2_title">Joy &amp; Imagination</h3>
+              <p data-i18n="col2_desc">
+                Created especially for children, with inspiring artwork that
+                helps preserve their joy, imagination, and hope.
+              </p>
+              <span class="tee-link" data-i18n="col_explore"
+                >Explore collection <span class="arrow">→</span></span
+              >
+            </div>
+          </a>
+          <a class="tee-card c-heroes" href="collection.html?c=heroes">
+            <div class="tee-visual" data-tee></div>
+            <div class="tee-body">
+              <div class="tag" data-i18n="col3_tag">Heroes Collection</div>
+              <h3 data-i18n="col3_title">Gratitude &amp; Courage</h3>
+              <p data-i18n="col3_desc">
+                For the unsung heroes — rescue workers, doctors, nurses, and
+                volunteers who risked their lives to save others.
+              </p>
+              <span class="tee-link" data-i18n="col_explore"
+                >Explore collection <span class="arrow">→</span></span
+              >
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="story">
+      <div class="wrap story">
+        <div class="section-head" style="margin-bottom: 32px">
+          <h2 data-i18n="story_head">More than a shirt</h2>
+        </div>
+        <p class="lead" data-i18n="story_lead">
+          HopeTee was born from the desire to support the people affected by the
+          devastating earthquakes in Venezuela — turning a simple T-shirt into a
+          meaningful gift.
+        </p>
+        <p data-i18n="story_p1">
+          Every piece is thoughtfully designed for the person who receives it.
+          Not a mass-produced garment with no story behind it, but a unique
+          creation made with sensitivity, artistic expression, and purpose —
+          carrying a message of hope, dignity, and compassion.
+        </p>
+        <p data-i18n="story_p2">
+          Renowned Venezuelan artists — illustrators, designers, cartoonists,
+          painters, musicians, writers and more — are voluntarily donating their
+          talent to transform each T-shirt into a message of hope.
+        </p>
+        <div class="pledge" data-i18n="story_pledge">
+          Every HopeTee is given <strong>completely free</strong> to residents
+          and volunteer first responders in the affected areas.
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE BAND -->
+    <section class="band">
+      <div class="wrap">
+        <blockquote data-i18n="band_quote">
+          "We don't want the recipient to feel they are receiving a donation. We
+          want them to feel that <span>someone thought about them</span> — and
+          that they are not alone."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2 data-i18n="val_head">Rebuilding the spirit of a nation</h2>
+          <p data-i18n="val_sub">
+            Because restoring a country also begins by restoring the hope of its
+            people.
+          </p>
+        </div>
+        <div class="values">
+          <div class="value">
+            <div class="n" data-i18n="val1_n">01</div>
+            <h4 data-i18n="val1_t">Made personally</h4>
+            <p data-i18n="val1_d">
+              Each shirt is designed for the person who receives it — a gesture
+              made with love, not a faceless handout.
+            </p>
+          </div>
+          <div class="value">
+            <div class="n" data-i18n="val2_n">02</div>
+            <h4 data-i18n="val2_t">Powered by artists</h4>
+            <p data-i18n="val2_d">
+              Venezuela's creative community donates its talent so art can do
+              what art does best: heal.
+            </p>
+          </div>
+          <div class="value">
+            <div class="n" data-i18n="val3_n">03</div>
+            <h4 data-i18n="val3_t">Always free</h4>
+            <p data-i18n="val3_d">
+              Every tee reaches victims and volunteers at no cost — a reminder
+              that they are seen and not alone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET INVOLVED / CTA -->
+    <section id="involved" class="cta">
+      <div class="wrap">
+        <div class="cta-box">
+          <h2 data-i18n="cta_head">Help us bring hope to life</h2>
+          <p data-i18n="cta_sub">
+            HopeTee is in its early stages and growing fast. Are you an artist,
+            volunteer, or supporter? Leave your email and we'll be in touch.
+          </p>
+          <form class="cta-form" onsubmit="return htSubmit(event);">
+            <input
+              type="email"
+              required
+              placeholder="you@email.com"
+              data-i18n-ph="cta_ph"
+              aria-label="Email"
+            />
+            <button type="submit" data-i18n="cta_btn">Count me in</button>
+          </form>
+          <div class="cta-note" data-i18n="cta_note">
+            For artists, volunteers, partners, and friends of the project.
+          </div>
+          <!-- <div class="cta-second" data-i18n="cta_second">Prefer to give directly? <a href="#" id="donateLink">Make a donation →</a></div> -->
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <a class="brand" href="index.html"
+          ><img src="assets/hopetee-logo.png" alt="HopeTee"
+        /></a>
+        <div data-i18n="foot_tag">Wear Hope. Share Hope. · hopetee.org</div>
+        <div>© 2026 HopeTee</div>
+      </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script>
+      // Inject the logo-printed tee mockup into each card
+      function teeSVG() {
+        return `<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M50 36 L74 24 C80 38 120 38 126 24 L150 36 L168 60 L150 74 L140 64 L140 168 C140 174 134 178 128 178 L72 178 C66 178 60 174 60 168 L60 64 L50 74 L32 60 Z"
+        fill="#ffffff" stroke="#16264f" stroke-width="5" stroke-linejoin="round"/>
+      <image href="assets/hopetee-logo.png" x="68" y="74" width="64" height="64" preserveAspectRatio="xMidYMid meet"/>
+    </svg>`;
+      }
+      document
+        .querySelectorAll("[data-tee]")
+        .forEach((el) => (el.innerHTML = teeSVG()));
+
+      // === MailerLite mailing list ===
+      // Paste the two values from your MailerLite embedded form here.
+      // Until they're filled in, the form just shows a thank-you (no real capture).
+      const ML_ACCOUNT = "2481947";
+      const ML_FORM = "191741068927043508";
+
+      function htSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector("button");
+        const emailInput = form.querySelector('input[type="email"]');
+        if (ML_ACCOUNT && ML_FORM) {
+          const data = new FormData();
+          data.append("fields[email]", emailInput.value);
+          data.append("ml-submit", "1");
+          data.append("anticsrf", "true");
+          fetch(
+            `https://assets.mailerlite.com/jsonp/${ML_ACCOUNT}/forms/${ML_FORM}/subscribe`,
+            { method: "POST", body: data, mode: "no-cors" },
+          ).catch(() => {});
+        }
+        btn.textContent =
+          window.__lang === "es" ? "¡Gracias! 💙" : "Thank you! 💙";
+        btn.disabled = true;
+        emailInput.disabled = true;
+        return false;
+      }
+    </script>
+  </body>
+</html>
