@@ -63,7 +63,12 @@ window.HT_I18N = {
     test_sub: "Artists, volunteers, and supporters sharing why they're part of HopeTee.",
     test_cta_head: "Want to add your voice?",
     test_cta_sub: "Artists, volunteers and supporters make every HopeTee possible. Join us.",
-    test_cta_btn: "Get involved"
+    test_cta_btn: "Get involved",
+
+    // Coming soon / documentary page
+    soon_kicker: "HopeTee",
+    soon_head: "Coming Soon",
+    soon_sub: "This page is under construction. Check back soon."
   },
 
   es: {
@@ -128,7 +133,12 @@ window.HT_I18N = {
     test_sub: "Artistas, voluntarios y colaboradores comparten por qué son parte de HopeTee.",
     test_cta_head: "¿Quieres sumar tu voz?",
     test_cta_sub: "Artistas, voluntarios y colaboradores hacen posible cada HopeTee. Únete.",
-    test_cta_btn: "Participa"
+    test_cta_btn: "Participa",
+
+    // Página próximamente / documental
+    soon_kicker: "HopeTee",
+    soon_head: "Próximamente",
+    soon_sub: "Esta página está en construcción. Vuelve pronto."
   }
 };
 
