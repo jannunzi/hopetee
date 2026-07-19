@@ -3,7 +3,7 @@ window.HT_I18N = {
   en: {
     nav_collections: "Collections",
     nav_story: "Our Story",
-    nav_testimonies: "Testimonies",
+    nav_testimonies: "Collaborators",
     nav_involved: "Get Involved",
     nav_cta: "Get Involved",
 
@@ -57,13 +57,14 @@ window.HT_I18N = {
     detail_cta_btn: "Get involved",
     detail_other: "Other collections",
 
-    // Testimonies page
+    // Collaborators page
     test_kicker: "In their own words",
-    test_head: "Voices of Hope",
+    test_head: "Our Collaborators",
     test_sub: "Artists, volunteers, and supporters sharing why they're part of HopeTee.",
-    test_cta_head: "Want to add your voice?",
+    test_cta_head: "Want to join as a collaborator?",
     test_cta_sub: "Artists, volunteers and supporters make every HopeTee possible. Join us.",
     test_cta_btn: "Get involved",
+    test_photo_ph: "Photo coming soon",
 
     // Coming soon / documentary page
     soon_kicker: "HopeTee",
@@ -74,7 +75,7 @@ window.HT_I18N = {
   es: {
     nav_collections: "Colecciones",
     nav_story: "Nuestra Historia",
-    nav_testimonies: "Testimonios",
+    nav_testimonies: "Colaboradores",
     nav_involved: "Participa",
     nav_cta: "Participa",
 
@@ -127,13 +128,14 @@ window.HT_I18N = {
     detail_cta_btn: "Participa",
     detail_other: "Otras colecciones",
 
-    // Página de testimonios
+    // Página de colaboradores
     test_kicker: "En sus propias palabras",
-    test_head: "Voces de Esperanza",
+    test_head: "Nuestros Colaboradores",
     test_sub: "Artistas, voluntarios y colaboradores comparten por qué son parte de HopeTee.",
-    test_cta_head: "¿Quieres sumar tu voz?",
+    test_cta_head: "¿Quieres unirte como colaborador?",
     test_cta_sub: "Artistas, voluntarios y colaboradores hacen posible cada HopeTee. Únete.",
     test_cta_btn: "Participa",
+    test_photo_ph: "Foto próximamente",
 
     // Página próximamente / documental
     soon_kicker: "HopeTee",
