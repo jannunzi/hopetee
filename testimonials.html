@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HopeTee — Testimonies</title>
+<meta name="description" content="Artists, volunteers, and supporters share why they're part of HopeTee, bringing hope to the people affected by the earthquakes in Venezuela." />
+<link rel="icon" type="image/png" href="assets/hopetee-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#16264f;--navy-soft:#1e3367;--red:#e1242a;--gold:#f5a800;--ink:#1a1a1a;--muted:#6b7280;--bg:#fff;--bg-alt:#f6f7f9;--line:#e7e9ee;--max:1120px;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{height:34px;width:auto;}
+  .nav-right{display:flex;align-items:center;gap:20px;}
+  .nav-links{display:flex;gap:26px;font-size:14px;font-weight:500;}
+  .nav-links a:hover{color:var(--red);}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:12px;font-weight:600;}
+  .lang button{border:none;background:transparent;padding:6px 12px;cursor:pointer;color:var(--muted);font-weight:600;}
+  .lang button.active{background:var(--navy);color:#fff;}
+  .nav-cta{background:var(--red);color:#fff;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;}
+
+  .back-row{padding:28px 0 0;}
+  .back-row a{font-size:14px;font-weight:600;color:var(--muted);}
+  .back-row a:hover{color:var(--navy);}
+
+  .head{text-align:center;max-width:680px;margin:0 auto;padding:56px 0 48px;}
+  .head .kicker{color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px;margin-bottom:18px;}
+  .head h1{font-size:clamp(34px,5.5vw,54px);font-weight:800;letter-spacing:-.03em;color:var(--navy);line-height:1.05;}
+  .head p{margin-top:18px;font-size:18px;color:var(--muted);}
+
+  .testimonials{display:flex;flex-wrap:wrap;justify-content:center;gap:28px;padding-bottom:80px;}
+  .t-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:40px 40px 34px;max-width:680px;flex:1 1 480px;transition:transform .25s ease,box-shadow .25s ease;}
+  .t-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(22,38,79,.1);}
+  .t-mark{font-size:52px;line-height:1;color:var(--gold);font-weight:800;font-family:Georgia,serif;margin-bottom:6px;}
+  .t-quote p{font-size:18.5px;line-height:1.65;color:#2c2c2c;}
+  .t-quote p + p{margin-top:16px;}
+  .t-person{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);}
+  .t-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(160deg,var(--navy),var(--navy-soft));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;flex:0 0 auto;letter-spacing:-.02em;}
+  .t-name{font-weight:700;color:var(--navy);font-size:15.5px;}
+  .t-role{font-size:13.5px;color:var(--muted);margin-top:1px;}
+
+  .cta-box{background:linear-gradient(160deg,#16264f,#0f1c3d);color:#fff;border-radius:28px;padding:56px 32px;text-align:center;margin:0 0 80px;}
+  .cta-box h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-.03em;}
+  .cta-box p{max-width:520px;margin:14px auto 28px;color:#c4ccdc;font-size:18px;}
+  .btn{display:inline-block;padding:13px 30px;border-radius:999px;font-weight:600;font-size:15px;background:var(--red);color:#fff;}
+  .btn:hover{background:#c41d22;}
+
+  footer{padding:48px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot img{height:26px;}
+
+  @media(max-width:820px){.nav-links{display:none;}.t-card{padding:32px 26px 28px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img src="assets/hopetee-logo.png" alt="HopeTee" /></a>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="index.html#collections" data-i18n="nav_collections">Collections</a>
+        <a href="index.html#story" data-i18n="nav_story">Our Story</a>
+        <a href="testimonials.html" data-i18n="nav_testimonies">Testimonies</a>
+        <a href="index.html#involved" data-i18n="nav_involved">Get Involved</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+      <a class="nav-cta" href="index.html#involved" data-i18n="nav_cta">Get Involved</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="back-row"><a href="index.html" data-i18n="back_home">← Back home</a></div>
+</div>
+
+<main class="wrap">
+  <div class="head">
+    <div class="kicker" data-i18n="test_kicker">In their own words</div>
+    <h1 data-i18n="test_head">Voices of Hope</h1>
+    <p data-i18n="test_sub">Artists, volunteers, and supporters sharing why they're part of HopeTee.</p>
+  </div>
+
+  <div class="testimonials" id="testimonials"></div>
+
+  <section class="cta-box">
+    <h2 data-i18n="test_cta_head">Want to add your voice?</h2>
+    <p data-i18n="test_cta_sub">Artists, volunteers and supporters make every HopeTee possible. Join us.</p>
+    <a class="btn" href="index.html#involved" data-i18n="test_cta_btn">Get involved</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="index.html"><img src="assets/hopetee-logo.png" alt="HopeTee" /></a>
+    <div data-i18n="foot_tag">Wear Hope. Share Hope. · hopetee.org</div>
+    <div>© 2026 HopeTee</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+  // Add each new voice here — order shown is the order rendered on the page.
+  const TESTIMONIALS = [
+    {
+      initials: "AA",
+      name: "Alexandra Artigas",
+      en: {
+        role: "Illustrator · HopeTee Artist",
+        quote: [
+          "With my heart in Venezuela, it has been a true honor to be part of HopeTee and to transform my illustrations into a message of love, hope, and encouragement for the children affected by this tragedy.",
+          "For many years, my commitment as an illustrator has been to keep Venezuela in the hearts and minds of people around the world through my art. Today, that commitment carries an even deeper meaning: to remind these children that they are not alone and that, even in the darkest moments, hope always finds a way to bloom.",
+          "I truly believe that art has the power to comfort, inspire, and heal… and if one of my illustrations can bring a smile, offer a moment of hope, or simply remind a child that brighter days will come, then it has fulfilled the most beautiful purpose art can have!"
+        ]
+      },
+      es: {
+        role: "Ilustradora · Artista de HopeTee",
+        quote: [
+          "Con el corazón en Venezuela, ha sido un verdadero honor formar parte de HopeTee y transformar mis ilustraciones en un mensaje de cariño y esperanza para los niños afectados por esta tragedia.",
+          "Desde hace muchos años, mi compromiso como ilustradora ha sido mantener viva la mirada del mundo hacia Venezuela a través de mi arte. Hoy, ese compromiso cobra un significado aún más profundo: recordarles a estos niños que no están solos y que, incluso en los momentos más difíciles, la esperanza siempre encuentra la manera de florecer.",
+          "Creo que el arte tiene el poder de abrazar, inspirar y sanar. Si una ilustración puede regalar una sonrisa o un instante de esperanza, entonces habrá cumplido el propósito más hermoso de todos!"
+        ]
+      }
+    }
+  ];
+
+  function render(lang) {
+    const html = TESTIMONIALS.map(t => {
+      const c = t[lang] || t.en;
+      return `<div class="t-card">
+        <div class="t-mark">&ldquo;</div>
+        <div class="t-quote">${c.quote.map(p => `<p>${p}</p>`).join("")}</div>
+        <div class="t-person">
+          <div class="t-avatar">${t.initials}</div>
+          <div>
+            <div class="t-name">${t.name}</div>
+            <div class="t-role">${c.role}</div>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+    document.getElementById("testimonials").innerHTML = html;
+  }
+
+  document.addEventListener('ht-lang', e => render(e.detail));
+  document.addEventListener('DOMContentLoaded', () => render(window.__lang || 'en'));
+</script>
+</body>
+</html>

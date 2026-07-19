@@ -3,6 +3,7 @@ window.HT_I18N = {
   en: {
     nav_collections: "Collections",
     nav_story: "Our Story",
+    nav_testimonies: "Testimonies",
     nav_involved: "Get Involved",
     nav_cta: "Get Involved",
 
@@ -49,16 +50,26 @@ window.HT_I18N = {
 
     // Collection detail page
     back: "← All collections",
+    back_home: "← Back home",
     detail_free: "Given completely free",
     detail_cta_head: "Want to help this collection happen?",
     detail_cta_sub: "Artists, volunteers and supporters make every HopeTee possible. Join us.",
     detail_cta_btn: "Get involved",
-    detail_other: "Other collections"
+    detail_other: "Other collections",
+
+    // Testimonies page
+    test_kicker: "In their own words",
+    test_head: "Voices of Hope",
+    test_sub: "Artists, volunteers, and supporters sharing why they're part of HopeTee.",
+    test_cta_head: "Want to add your voice?",
+    test_cta_sub: "Artists, volunteers and supporters make every HopeTee possible. Join us.",
+    test_cta_btn: "Get involved"
   },
 
   es: {
     nav_collections: "Colecciones",
     nav_story: "Nuestra Historia",
+    nav_testimonies: "Testimonios",
     nav_involved: "Participa",
     nav_cta: "Participa",
 
@@ -104,11 +115,20 @@ window.HT_I18N = {
     foot_tag: "Lleva Esperanza. Comparte Esperanza. · hopetee.org",
 
     back: "← Todas las colecciones",
+    back_home: "← Volver al inicio",
     detail_free: "Entregada totalmente gratis",
     detail_cta_head: "¿Quieres ayudar a que esta colección sea realidad?",
     detail_cta_sub: "Artistas, voluntarios y colaboradores hacen posible cada HopeTee. Únete.",
     detail_cta_btn: "Participa",
-    detail_other: "Otras colecciones"
+    detail_other: "Otras colecciones",
+
+    // Página de testimonios
+    test_kicker: "En sus propias palabras",
+    test_head: "Voces de Esperanza",
+    test_sub: "Artistas, voluntarios y colaboradores comparten por qué son parte de HopeTee.",
+    test_cta_head: "¿Quieres sumar tu voz?",
+    test_cta_sub: "Artistas, voluntarios y colaboradores hacen posible cada HopeTee. Únete.",
+    test_cta_btn: "Participa"
   }
 };
 
