@@ -218,7 +218,10 @@
 
   let current = 0;
   let timer = null;
+  let paused = false;
+  let pendingDelay = 10000;
   const INTERVAL = 10000;
+  const COOLDOWN = 30000;
 
   function photoHtml(c, photoPh) {
     if (c.photo) {
@@ -274,24 +277,57 @@
     });
   }
 
+  function clearTimer() {
+    clearTimeout(timer);
+    timer = null;
+  }
+
+  function schedule(delay) {
+    pendingDelay = delay;
+    clearTimer();
+    if (paused || document.hidden) return;
+    timer = setTimeout(() => {
+      show(current + 1);
+      schedule(INTERVAL);
+    }, delay);
+  }
+
   function goTo(index) {
     show(index);
-    restartTimer();
+    schedule(COOLDOWN);
   }
 
-  function next() {
-    show(current + 1);
+  function pause() {
+    paused = true;
+    clearTimer();
   }
 
-  function restartTimer() {
-    clearInterval(timer);
-    timer = setInterval(next, INTERVAL);
+  function resume() {
+    paused = false;
+    schedule(pendingDelay);
   }
 
   document.addEventListener("ht-lang", e => render(e.detail));
   document.addEventListener("DOMContentLoaded", () => {
     render(window.__lang || "en");
-    restartTimer();
+    schedule(INTERVAL);
+
+    const slideshow = document.getElementById("slideshow");
+    slideshow.addEventListener("mouseenter", pause);
+    slideshow.addEventListener("mouseleave", resume);
+    slideshow.addEventListener("focusin", pause);
+    slideshow.addEventListener("focusout", e => {
+      if (!slideshow.contains(e.relatedTarget)) resume();
+    });
+    slideshow.addEventListener("click", e => {
+      if (e.target.closest(".dot")) return;
+      schedule(COOLDOWN);
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) clearTimer();
+      else if (!paused) schedule(pendingDelay);
+    });
   });
 </script>
 </body>
