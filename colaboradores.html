@@ -80,6 +80,15 @@
   .t-person{text-align:center;}
   .t-name{font-weight:700;color:var(--navy);font-size:15.5px;}
   .t-role{font-size:13.5px;color:var(--muted);margin-top:1px;}
+  .t-social{display:flex;justify-content:center;gap:10px;margin-top:12px;}
+  .t-social a{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--line);background:var(--bg-alt);
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--navy);transition:background .2s ease,color .2s ease,border-color .2s ease;
+  }
+  .t-social a:hover{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .t-social svg{width:16px;height:16px;fill:currentColor;}
 
   .t-mark{font-size:52px;line-height:1;color:var(--gold);font-weight:800;font-family:Georgia,serif;margin-bottom:6px;}
   .t-quote p{font-size:18.5px;line-height:1.65;color:#2c2c2c;}
@@ -169,11 +178,25 @@
 <script>
   // Add each collaborator here — order is the slideshow order.
   // Set photo to a path (e.g. "assets/collaborators/name.jpg") when ready; leave null for placeholder.
+  const SOCIAL_ICONS = {
+    website: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.4 9h-3.2a15 15 0 0 0-1.3-5.3A8 8 0 0 1 19.4 11ZM12 4c.9 0 2.3 1.9 3 5H9c.7-3.1 2.1-5 3-5ZM4.6 13h3.2c.2 1.9.7 3.7 1.3 5.3A8 8 0 0 1 4.6 13Zm3.2-2H4.6a8 8 0 0 1 4.5-5.3A15 15 0 0 0 7.8 11ZM12 20c-.9 0-2.3-1.9-3-5h6c-.7 3.1-2.1 5-3 5Zm2.9-1.7c.6-1.6 1.1-3.4 1.3-5.3h3.2a8 8 0 0 1-4.5 5.3ZM14.3 11c-.2-1.9-.7-3.7-1.3-5.3A8 8 0 0 1 19.4 11h-5.1Z"/></svg>',
+    instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.25 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>',
+    facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V9c0-.9.3-1.5 1.6-1.5H16.8V4.7c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.2H7.7V14h2.7v8h3.1Z"/></svg>',
+    x: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 10.7 22 2h-1.8l-6.5 7.5L8.5 2H2l7.9 11.3L2 22h1.8l6.9-8 5.8 8H22l-7.5-11.3Zm-2.4 2.8-.8-1.1L4.4 3.4h2.7l5.1 7.2.8 1.1 6.7 9.5h-2.7l-5.3-7.7Z"/></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5H3.7V21h2.8V8.5ZM5.1 3a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 0 0 0-3.6ZM21 21h-2.8v-6.3c0-1.5-.5-2.5-1.9-2.5-1 0-1.6.7-1.9 1.4-.1.2-.1.6-.1.9V21H11.5s0-10.4 0-11.5h2.8v1.6c.4-.6 1.1-1.9 3.1-1.9 2.3 0 4 1.5 4 4.7V21Z"/></svg>'
+  };
+
   const COLLABORATORS = [
     {
       initials: "AA",
       name: "Alexandra Artigas",
       photo: "images/alexandra-artigas.jpeg",
+      links: {
+        website: "https://www.aleart.com/",
+        instagram: "https://www.instagram.com/aleartigas/",
+        facebook: "https://www.facebook.com/profile.php?id=100036084231584",
+        linkedin: "https://www.linkedin.com/in/alexandra-artigas-szczedrin-4a431573"
+      },
       en: {
         role: "Illustrator · HopeTee Artist",
         quote: [
@@ -195,6 +218,11 @@
       initials: "RW",
       name: "Roberto Weil",
       photo: "images/roberto-weil.jpeg",
+      links: {
+        website: "https://robertoweil.com/",
+        instagram: "https://www.instagram.com/weil_arte/",
+        x: "https://twitter.com/WEIL_caricatura"
+      },
       en: {
         role: "Graphic Artist · HopeTee Artist",
         quote: [
@@ -233,6 +261,25 @@
     </div>`;
   }
 
+  function socialHtml(links) {
+    if (!links) return "";
+    const labels = {
+      website: "Website",
+      instagram: "Instagram",
+      facebook: "Facebook",
+      x: "X / Twitter",
+      linkedin: "LinkedIn"
+    };
+    const order = ["website", "instagram", "facebook", "x", "linkedin"];
+    const items = order
+      .filter(key => links[key] && SOCIAL_ICONS[key])
+      .map(key =>
+        `<a href="${links[key]}" target="_blank" rel="noopener noreferrer" aria-label="${labels[key]}">${SOCIAL_ICONS[key]}</a>`
+      )
+      .join("");
+    return items ? `<div class="t-social">${items}</div>` : "";
+  }
+
   function render(lang) {
     const dict = (window.HT_I18N && window.HT_I18N[lang]) || {};
     const photoPh = dict.test_photo_ph || "Photo coming soon";
@@ -247,6 +294,7 @@
           <div class="t-person">
             <div class="t-name">${t.name}</div>
             <div class="t-role">${c.role}</div>
+            ${socialHtml(t.links)}
           </div>
         </div>
         <div class="t-body">
