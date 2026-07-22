@@ -80,6 +80,8 @@
   .t-mark{font-size:52px;line-height:1;color:var(--gold);font-weight:800;font-family:Georgia,serif;margin-bottom:6px;}
   .t-quote p{font-size:18.5px;line-height:1.65;color:#2c2c2c;}
   .t-quote p + p{margin-top:16px;}
+  .t-quote a{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  .t-quote a:hover{color:var(--red);}
   .t-person{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);}
   .t-name{font-weight:700;color:var(--navy);font-size:15.5px;}
   .t-role{font-size:13.5px;color:var(--muted);margin-top:1px;}
@@ -189,40 +191,25 @@
       }
     },
     {
-      initials: "JD",
-      name: "John Doe",
+      initials: "RW",
+      name: "Roberto Weil",
       photo: null,
       en: {
-        role: "Placeholder · Role TBD",
+        role: "Graphic Artist · HopeTee Artist",
         quote: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "On June 23, Emilio Lovera sent me a message explaining that Amílcar Rivero's close friend Luis Pérez — “who is an incredibly good person, the kind of person who is good, good, good” — had the idea of making a gift in solidarity with the victims and in honor of the Venezuelan civilians who have been, practically, the only ones carrying out the delivery of aid and the rescue.",
+          "Emilio told me that Luis works for a company that manufactures machines for printing T-shirts and has a way to produce between 5,000 and 10,000 shirts. He said that Laureano (Márquez) and También Cicilia (Carlos) had decided to use the phrase “Soy civil” (“I am a civilian”) and wanted me, among other graphic artists, to create a drawing based on that phrase.",
+          "After talking with Luis and visiting the website of the company where he has worked for 27 years (<a href=\"https://www.mrprint.com/\" target=\"_blank\" rel=\"noopener noreferrer\">M&R</a>), it was clear that I was collaborating with a team of very good and very professional people.",
+          "I feel very happy to contribute even a very small offering to a cause that honors both the rescuers and the rescued. A small gift that honors good conduct — that is, the basic values that are our only path and instruction manual for rebuilding a healthy and sustainable society."
         ]
       },
       es: {
-        role: "Marcador de posición · Rol por definir",
+        role: "Artista gráfico · Artista de HopeTee",
         quote: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-        ]
-      }
-    },
-    {
-      initials: "JS",
-      name: "Jane Smith",
-      photo: null,
-      en: {
-        role: "Placeholder · Role TBD",
-        quote: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        ]
-      },
-      es: {
-        role: "Marcador de posición · Rol por definir",
-        quote: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "El 23 de Junio, Emilio Lovera me mandó un mensaje explicándome que el compadre de Amilcar Rivero, Luis Pérez, “que es un tipo demasiado bueno, esa gente que es buena, buena, buena”, tiene la idea de hacer un regalo en solidaridad con las víctimas y en honor a los civiles venezolanos que han sido, prácticamente, los únicos que han llevado a cabo el suministro de ayuda y el rescate.",
+          "Emilio me comentó que Luis trabaja para una empresa que fabrica máquinas para estampar franelas y tiene como mandar a hacer de 5,000 a 10,000 franelas. Me decía que entre Laureano (Marquez) y También Cicilia (Carlos) decidieron usar la frase “Soy civil” y querían que, entre otros artistas gráficos, yo les hiciera un dibujo basado en esa frase.",
+          "Luego de conversar con Luis y de visitar la página web de la empresa donde ha trabajado por 27 años (<a href=\"https://www.mrprint.com/\" target=\"_blank\" rel=\"noopener noreferrer\">M&R</a>), quedaba claro que estaba colaborando con un equipo de gente muy buena y muy profesional.",
+          "Me siento muy feliz de contribuir con un aporte muy pequeño para una causa que honra a los rescatistas y a los rescatados. Un pequeño regalo que honra al buen proceder, es decir, a los valores básicos, que son nuestro único camino y manual de instrucciones para reconstruir una sociedad sana y sustentable."
         ]
       }
     }
@@ -230,7 +217,7 @@
 
   let current = 0;
   let timer = null;
-  const INTERVAL = 5000;
+  const INTERVAL = 10000;
 
   function photoHtml(c, photoPh) {
     if (c.photo) {
