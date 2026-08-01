@@ -4,8 +4,11 @@ window.HT_I18N = {
     nav_collections: "Collections",
     nav_story: "Our Story",
     nav_testimonies: "Collaborators",
+    nav_media: "Media",
     nav_involved: "Get Involved",
     nav_cta: "Get Involved",
+    foot_media: "Media",
+    foot_youtube: "YouTube",
 
     hero_kicker: "In development · Venezuela earthquake relief",
     hero_title: "Wear Hope.<br/><span class=\"accent\">Share Hope.</span>",
@@ -83,8 +86,11 @@ window.HT_I18N = {
     nav_collections: "Colecciones",
     nav_story: "Nuestra Historia",
     nav_testimonies: "Colaboradores",
+    nav_media: "Media",
     nav_involved: "Participa",
     nav_cta: "Participa",
+    foot_media: "Media",
+    foot_youtube: "YouTube",
 
     hero_kicker: "En desarrollo · Ayuda por el terremoto en Venezuela",
     hero_title: "Lleva Esperanza.<br/><span class=\"accent\">Comparte Esperanza.</span>",

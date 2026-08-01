@@ -74,14 +74,29 @@
   }
   .reel:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(22,38,79,.1);}
   .reel-thumb{
+    position:relative;
     aspect-ratio:9/16;max-height:320px;margin:0 auto;width:min(100%,200px);
     border-radius:16px;background:linear-gradient(160deg,#eef2fb,#dde6f7);
-    border:1px dashed #c5cee0;
+    overflow:hidden;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
     color:var(--navy);
   }
+  .reel-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .reel-thumb .ph-icon{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;z-index:1;}
+  .reel-thumb.has-poster .ph-icon{display:none;}
+  .reel-thumb .play-badge{
+    position:absolute;inset:0;z-index:2;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(22,38,79,.18);
+  }
+  .reel-thumb .play-badge span{
+    width:48px;height:48px;border-radius:50%;
+    background:rgba(255,255,255,.92);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .reel-thumb .play-badge svg{width:20px;height:20px;fill:currentColor;margin-left:2px;}
   .reel-thumb svg{width:36px;height:36px;fill:currentColor;}
-  .reel-thumb span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+  .reel-thumb .ph-icon span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
   .reel-body{text-align:center;}
   .reel-body h3{font-size:16px;font-weight:700;color:var(--navy);}
   .reel-body .btn-ig{
@@ -114,6 +129,7 @@
         <a href="../index.html#collections" data-i18n="nav_collections">Collections</a>
         <a href="../index.html#story" data-i18n="nav_story">Our Story</a>
         <a href="../colaboradores.html" data-i18n="nav_testimonies">Collaborators</a>
+        <a href="./" data-i18n="nav_media">Media</a>
         <a href="../index.html#involved" data-i18n="nav_involved">Get Involved</a>
       </nav>
       <div class="lang" role="group" aria-label="Language">
@@ -171,27 +187,36 @@
     {
       youtube: "https://youtube.com/shorts/JLefl0B_m00?si=gpLh0KaMcWL0mnWd",
       title: {
-        en: "Rayma Firmando",
-        es: "Rayma Firmando"
+        en: "Rayma signs for HopeTee",
+        es: "Rayma firma por HopeTee"
       }
     },
     {
       youtube: "https://youtube.com/shorts/o73kJjh6ljE",
       title: {
-        en: "HopeTee Short",
-        es: "Short de HopeTee"
+        en: "Behind the shirts",
+        es: "Detrás de las franelas"
       }
     }
   ];
 
+  // Optional: set poster to a local image path, e.g. "../images/reel-1.jpg"
   const REELS = [
     {
       url: "https://www.instagram.com/reels/DbeebEWiYjz/",
-      title: { en: "Instagram Reel", es: "Reel de Instagram" }
+      poster: "../images/luis.png",
+      title: {
+        en: "Luis on the HopeTee idea",
+        es: "Luis y la idea de HopeTee"
+      }
     },
     {
       url: "https://www.instagram.com/reels/DbeAhu0Apbi/",
-      title: { en: "Instagram Reel", es: "Reel de Instagram" }
+      poster: "../images/luis-rayma.png",
+      title: {
+        en: "Luis & Rayma — artists for hope",
+        es: "Luis y Rayma — artistas por la esperanza"
+      }
     }
   ];
 
@@ -245,10 +270,16 @@
 
     root.innerHTML = REELS.map((r, i) => {
       const title = (r.title && (r.title[lang] || r.title.en)) || `Reel ${i + 1}`;
+      const poster = r.poster
+        ? `<img src="${r.poster}" alt="" /><div class="play-badge"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div>`
+        : "";
       return `<a class="reel" href="${r.url}" target="_blank" rel="noopener noreferrer">
-        <div class="reel-thumb">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.25 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
-          <span>Instagram</span>
+        <div class="reel-thumb${r.poster ? " has-poster" : ""}">
+          ${poster}
+          <div class="ph-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.25 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+            <span>Instagram</span>
+          </div>
         </div>
         <div class="reel-body">
           <h3>${title}</h3>
