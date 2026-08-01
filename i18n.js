@@ -66,10 +66,17 @@ window.HT_I18N = {
     test_cta_btn: "Get involved",
     test_photo_ph: "Photo coming soon",
 
-    // Coming soon / documentary page
-    soon_kicker: "HopeTee",
-    soon_head: "Coming Soon",
-    soon_sub: "This page is under construction. Check back soon."
+    // Media / documentary page
+    media_kicker: "Stories in motion",
+    media_head: "HopeTee Media",
+    media_sub: "Videos and social posts from the HopeTee movement — artists, civilians, and the hope behind every shirt.",
+    media_videos_head: "Videos",
+    media_videos_sub: "Watch the stories behind HopeTee.",
+    media_video_ph: "YouTube video coming soon",
+    media_social_head: "Related posts",
+    media_social_sub: "Recent Instagram reels from the community.",
+    media_watch_ig: "Watch on Instagram",
+    media_collab_cta: "Meet our collaborators →"
   },
 
   es: {
@@ -137,10 +144,17 @@ window.HT_I18N = {
     test_cta_btn: "Participa",
     test_photo_ph: "Foto próximamente",
 
-    // Página próximamente / documental
-    soon_kicker: "HopeTee",
-    soon_head: "Próximamente",
-    soon_sub: "Esta página está en construcción. Vuelve pronto."
+    // Página de media / documental
+    media_kicker: "Historias en movimiento",
+    media_head: "HopeTee Media",
+    media_sub: "Videos y publicaciones del movimiento HopeTee — artistas, civiles y la esperanza detrás de cada camiseta.",
+    media_videos_head: "Videos",
+    media_videos_sub: "Mira las historias detrás de HopeTee.",
+    media_video_ph: "Video de YouTube próximamente",
+    media_social_head: "Publicaciones relacionadas",
+    media_social_sub: "Reels recientes de Instagram de la comunidad.",
+    media_watch_ig: "Ver en Instagram",
+    media_collab_cta: "Conoce a nuestros colaboradores →"
   }
 };
 
