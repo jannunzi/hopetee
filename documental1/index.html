@@ -106,6 +106,26 @@
   }
   .reel-body .btn-ig:hover{background:#c41d22;}
 
+  .news{display:grid;gap:16px;}
+  .news-card{
+    display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center;
+    border:1px solid var(--line);border-radius:20px;padding:22px 24px;background:#fff;
+    transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .news-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(22,38,79,.1);}
+  .news-mark{
+    width:52px;height:52px;border-radius:14px;
+    background:linear-gradient(160deg,#16264f,#0f1c3d);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;letter-spacing:-.02em;
+  }
+  .news-card h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;}
+  .news-card .source{margin-top:4px;font-size:13.5px;color:var(--muted);font-weight:600;}
+  .news-card .btn-news{
+    padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;
+    background:var(--red);color:#fff;white-space:nowrap;
+  }
+  .news-card:hover .btn-news{background:#c41d22;}
+
   .collab-link{display:block;text-align:center;padding:0 0 80px;font-weight:700;color:var(--navy);font-size:16px;}
   .collab-link:hover{color:var(--red);}
 
@@ -116,6 +136,8 @@
   @media(max-width:820px){
     .nav-links{display:none;}
     .reels{grid-template-columns:1fr;}
+    .news-card{grid-template-columns:auto 1fr;gap:14px;}
+    .news-card .btn-news{grid-column:1 / -1;justify-self:start;}
   }
 </style>
 </head>
@@ -162,6 +184,14 @@
 
   <section class="section">
     <div class="section-head">
+      <h2 data-i18n="media_news_head">In the news</h2>
+      <p data-i18n="media_news_sub">HopeTee covered by the press.</p>
+    </div>
+    <div class="news" id="news"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
       <h2 data-i18n="media_social_head">Related posts</h2>
       <p data-i18n="media_social_sub">Recent Instagram reels from the community.</p>
     </div>
@@ -200,6 +230,18 @@
     }
   ];
 
+  const NEWS = [
+    {
+      url: "https://www.telemundochicago.com/video/noticias/local/artistas-venezolanos-se-unen-para-ayudar-a-afectados-por-terremotos/2647765/",
+      source: "Telemundo Chicago",
+      mark: "TM",
+      title: {
+        en: "Venezuelan artists unite to help those affected by earthquakes",
+        es: "Artistas venezolanos se unen para ayudar a afectados por terremotos"
+      }
+    }
+  ];
+
   // Optional: set poster to a local image path, e.g. "../images/reel-1.jpg"
   const REELS = [
     {
@@ -216,6 +258,22 @@
       title: {
         en: "Luis & Rayma — artists for hope",
         es: "Luis y Rayma — artistas por la esperanza"
+      }
+    },
+    {
+      url: "https://www.instagram.com/reels/DbZISSSgb45/",
+      poster: null,
+      title: {
+        en: "HopeTee in the community",
+        es: "HopeTee en la comunidad"
+      }
+    },
+    {
+      url: "https://www.instagram.com/stories/raymacaricatura/3953482442978935862/",
+      poster: null,
+      title: {
+        en: "Rayma’s Instagram story",
+        es: "Historia de Instagram de Rayma"
       }
     }
   ];
@@ -263,6 +321,24 @@
     }).join("");
   }
 
+  function renderNews(lang) {
+    const dict = (window.HT_I18N && window.HT_I18N[lang]) || {};
+    const cta = dict.media_read_news || "Watch on Telemundo";
+    const root = document.getElementById("news");
+
+    root.innerHTML = NEWS.map(n => {
+      const title = (n.title && (n.title[lang] || n.title.en)) || "";
+      return `<a class="news-card" href="${n.url}" target="_blank" rel="noopener noreferrer">
+        <div class="news-mark">${n.mark || "NEWS"}</div>
+        <div>
+          <h3>${title}</h3>
+          <div class="source">${n.source || ""}</div>
+        </div>
+        <span class="btn-news">${cta}</span>
+      </a>`;
+    }).join("");
+  }
+
   function renderReels(lang) {
     const dict = (window.HT_I18N && window.HT_I18N[lang]) || {};
     const watch = dict.media_watch_ig || "Watch on Instagram";
@@ -291,6 +367,7 @@
 
   function render(lang) {
     renderVideos(lang);
+    renderNews(lang);
     renderReels(lang);
   }
 
